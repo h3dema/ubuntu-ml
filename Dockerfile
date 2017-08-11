@@ -12,19 +12,26 @@ RUN apt-get -y update && \
 RUN pip install --upgrade pip
 RUN pip install -U scikit-learn    
 
-sudo -H pip install jupyter
+RUN sudo -H pip install jupyter
 
 # create access keys
 # 10 years certificate
-openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout mykey.key -out mycert.pem -subj "/C=BR/ST=MG/L=BH/O=Bogus/OU=IT Department/CN=machinelearning"
+RUN openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout mykey.key -out mycert.pem -subj "/C=BR/ST=MG/L=BH/O=Bogus/OU=IT Department/CN=machinelearning"
 
 # create a configuration file
-jupyter notebook --generate-config --allow-root
+RUN jupyter notebook --generate-config --allow-root
+RUN echo -e "c.NotebookApp.certfile = u'/mycert.pem'" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo -e "c.NotebookApp.keyfile = u'/mykey.key'" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo -e "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo -e "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo -e "c.NotebookApp.password = u'`python -c "from IPython.lib import passwd;print passwd('secret')"`'" >> /root/.jupyter/jupyter_notebook_config.py
 
-mkdir /JUPYTER
+RUN mkdir /JUPYTER
 # the notebook server starts on port 8888
 # the default directory is /JUPYTER
-jupyter notebook --allow-root --notebook-dir=/JUPYTER &
+RUN jupyter notebook --allow-root --notebook-dir=/JUPYTER &
 # you can access the ipython notebook using:
-# http://localhost:8888/
+# http://<ip address of eth0>:8888/
 
+RUN echo -e "You can access this container by these addresses"
+RUN ifconfig eth0 | grep inet
