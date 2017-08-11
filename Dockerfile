@@ -9,3 +9,7 @@ RUN apt-get -y update && \
     
 RUN pip install -U scikit-learn    
 RUN pip install jupyter
+
+
+RUN mkdir /JUPYTER
+RUN jupyter notebook --notebook-dir=/JUPYTER
