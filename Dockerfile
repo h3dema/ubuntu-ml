@@ -6,5 +6,6 @@ RUN apt-get -y update && \
     apt-get -y install python-setuptools python-pip python-dev && \
     apt-get -y install python-numpy python-scipy python-matplotlib ipython && \
     apt-get -y install ipython-notebook
-    
+
+RUN pip install --upgrade pip
 RUN pip install -U scikit-learn    
