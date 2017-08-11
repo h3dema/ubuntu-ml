@@ -23,5 +23,5 @@ docker build -t machinelearning github.com/h3dema/ubuntu-ml
 # Running
 
 ```bash
-docker run machinelearning
+docker run -it machinelearning
 ```
