@@ -25,3 +25,6 @@ docker build -t machinelearning github.com/h3dema/ubuntu-ml
 ```bash
 docker run -it machinelearning
 ```
+
+The notebook is going to running and can be access using the IP address of eth0 interface.
+The password to access the notebook is 'secret'.
