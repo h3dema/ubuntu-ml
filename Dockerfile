@@ -10,3 +10,13 @@ RUN apt-get -y update && \
 
 RUN pip install --upgrade pip
 RUN pip install -U scikit-learn    
+
+sudo -H pip install jupyter
+
+mkdir /JUPYTER
+# the notebook server starts on port 8888
+# the default directory is /JUPYTER
+jupyter notebook --allow-root --notebook-dir=/JUPYTER &
+# you can access the ipython notebook using:
+# http://localhost:8888/
+
