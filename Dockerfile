@@ -15,6 +15,8 @@ RUN pip install -U scikit-learn
 
 RUN sudo -H pip install jupyter
 
+RUN mkdir /JUPYTER
+
 # create access keys
 # 10 years certificate
 RUN openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout mykey.key -out mycert.pem -subj "/C=BR/ST=MG/L=BH/O=Bogus/OU=IT Department/CN=machinelearning"
@@ -40,5 +42,5 @@ RUN chmod +x /usr/bin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
 EXPOSE 8888
-CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root", "-notebook-dir=/JUPYTER"]
 
