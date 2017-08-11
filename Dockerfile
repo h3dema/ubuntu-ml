@@ -21,11 +21,11 @@ RUN openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout mykey.key -out 
 
 # create a configuration file
 RUN jupyter notebook --generate-config --allow-root
-RUN echo -e "c.NotebookApp.certfile = u'/mycert.pem'" >> /root/.jupyter/jupyter_notebook_config.py
-RUN echo -e "c.NotebookApp.keyfile = u'/mykey.key'" >> /root/.jupyter/jupyter_notebook_config.py
-RUN echo -e "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py
-RUN echo -e "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
-RUN echo -e "c.NotebookApp.password = u'`python -c "from IPython.lib import passwd;print passwd('secret')"`'" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.certfile = u'/mycert.pem'" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.keyfile = u'/mykey.key'" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.password = u'`python -c "from IPython.lib import passwd;print passwd('secret')"`'" >> /root/.jupyter/jupyter_notebook_config.py
 
 RUN echo -e "You can access this container by these addresses"
 RUN ifconfig eth0 | grep inet
