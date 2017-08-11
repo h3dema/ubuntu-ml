@@ -1,6 +1,7 @@
 # ubuntu-ml
 Dockerfile for Machine Learning Data experiments on Ubuntu.,
-This repository helps you create a (https://www.docker.com/|docker) container
+This repository helps you create a [docker](https://www.docker.com/) container.
+This container runs Ubuntu 14.04 (latest) with ipython notebook.
 
 
 
@@ -15,4 +16,10 @@ or
 
 ```bash
 docker build -t machinelearning github.com/h3dema/ubuntu-ml
+```
+
+# Running
+
+```bash
+docker run machinelearning
 ```
