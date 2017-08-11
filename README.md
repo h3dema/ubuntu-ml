@@ -3,8 +3,8 @@ Dockerfile for Machine Learning Data experiments on Ubuntu.,
 This repository helps you create a [docker](https://www.docker.com/) container.
 This container runs Ubuntu 14.04 (latest) with ipython notebook.
 This container has:
-* [http://www.numpy.org/](NumPy) and [https://www.scipy.org/](SciPy): scientific computing
-* [https://www.crummy.com/software/BeautifulSoup/](Beautiful Soup): handles data
+* [NumPy](http://www.numpy.org/) and [SciPy](https://www.scipy.org/): scientific computing
+* [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/): handles data
 
 
 # Creating your docker container
