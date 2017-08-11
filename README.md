@@ -5,6 +5,7 @@ This container runs Ubuntu 14.04 (latest) with ipython notebook.
 This container has:
 * [NumPy](http://www.numpy.org/) and [SciPy](https://www.scipy.org/): scientific computing
 * [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/): handles data
+* [scikit-learn](http://scikit-learn.org/stable/): Machine Learning in Python
 
 
 # Creating your docker container
