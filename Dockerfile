@@ -45,4 +45,3 @@ RUN chmod +x /usr/bin/tini
 
 #CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root", "-notebook-dir=/JUPYTER"]
 #CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/JUPYTER"]
-CMD jupyter notebook --allow-root --notebook-dir=/JUPYTER &
