@@ -42,8 +42,3 @@ The last command runs the notebook, and it can be access using the IP address of
 In our example, the URL is https://172.170.0.19:8888.
 The password to access the notebook is 'secret'.
 
-## Get the docker container IP address from the Host
-
-```bash
-CID=$(docker run -d -p 4321 machinelearning nc -lk 4321); docker inspect $CID | grep IPAddress
-```
