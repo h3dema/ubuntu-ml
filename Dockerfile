@@ -32,6 +32,8 @@ RUN echo "c.NotebookApp.password = u'`python -c "from IPython.lib import passwd;
 RUN echo -e "\n\n\nYou can access this container by these addresses"
 RUN ifconfig eth0 | grep inet
 
+EXPOSE 8888
+
 #RUN cat /root/.jupyter/jupyter_notebook_config.py
 
 # Add Tini. Tini operates as a process subreaper for jupyter. This prevents
@@ -39,8 +41,7 @@ RUN ifconfig eth0 | grep inet
 ENV TINI_VERSION v0.6.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 RUN chmod +x /usr/bin/tini
-ENTRYPOINT ["/usr/bin/tini", "--"]
+#ENTRYPOINT ["/usr/bin/tini", "--"]
 
-EXPOSE 8888
 #CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root", "-notebook-dir=/JUPYTER"]
-CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/JUPYTER"]
+#CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/JUPYTER"]
