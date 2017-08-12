@@ -23,14 +23,14 @@ docker build -t machinelearning github.com/h3dema/ubuntu-ml
 
 # Running
 
-The following command start a machinelearning container:
+The following command starts a machinelearning container:
 
 ```bash
 docker run -it machinelearning
 ```
 
 This will provide you a prompt, where you can get the container IP address and also start the jupyter notebook.
-Both command are shown below:
+Both commands are shown below:
 
 ```bash
 # root@xxxxxxx:/# ifconfig eth0 | grep inet\ addr | awk -F ":" '{print $2}' | awk '{print $1}'
