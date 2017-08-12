@@ -29,3 +29,10 @@ docker run -it machinelearning
 
 The notebook is going to running and can be access using the IP address of eth0 interface.
 The password to access the notebook is 'secret'.
+
+## Get the docker container IP address
+
+```bash
+CID=$(docker run -d -p 4321 machinelearning nc -lk 4321);
+docker inspect $CID | grep IPAddress
+```
