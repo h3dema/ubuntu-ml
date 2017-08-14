@@ -35,6 +35,9 @@ RUN ifconfig eth0 | grep inet
 
 EXPOSE 8888
 
+COPY ./GraphLabCreate.sh .
+RUN bash ./GraphLabCreate.sh
+
 # Add Tini. Tini operates as a process subreaper for jupyter. This prevents
 # kernel crashes.
 ENV TINI_VERSION v0.6.0
