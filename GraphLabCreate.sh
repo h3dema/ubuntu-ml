@@ -3,7 +3,7 @@
 wget -c https://repo.continuum.io/archive/Anaconda2-4.0.0-Linux-x86_64.sh
 
 # Run Anaconda2 v4.0.0 installer.
-run Anaconda2-4.0.0-Linux-x86_64.sh
+bash ./Anaconda2-4.0.0-Linux-x86_64.sh
 
 # Create a new conda environment with Python 2.7.x
 conda create -n gl-env python=2.7 anaconda=4.0.0
