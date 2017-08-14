@@ -7,7 +7,8 @@ RUN apt-get -y update && \
     apt-get -y install python-numpy python-scipy python-matplotlib ipython && \
     apt-get -y install ipython-notebook
 
-#apt-get -y install python-bs4 && \\
+RUN apt-get -y install python-bs4
+
 #    apt-get -y install git
 
 RUN pip install --upgrade pip
